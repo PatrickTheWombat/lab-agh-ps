@@ -32,7 +32,7 @@ namespace lab_test
 			{
 				endpoints.MapGet("/", async context =>
 				{
-					await context.Response.WriteAsync("Hello from CI/CD!");
+					await context.Response.WriteAsync("Hello from CI/CD 2!");
 				});
 			});
 		}
