@@ -34,7 +34,7 @@ namespace lab_test
 				endpoints.MapGet("/", async context =>
 				{
 					var testVariable = context.RequestServices.GetService<IConfiguration>().GetSection("test").Value ?? "Variable not configured!";
-					await context.Response.WriteAsync($"Passing test! Test variable: {testVariable}");
+					await context.Response.WriteAsync($"No tests YOLO mode! Test variable: {testVariable}");
 				});
 			});
 		}
