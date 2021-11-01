@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -32,7 +33,8 @@ namespace lab_test
 			{
 				endpoints.MapGet("/", async context =>
 				{
-					await context.Response.WriteAsync("Hello from CI/CD 2!");
+					var testVariable = context.RequestServices.GetService<IConfiguration>().GetSection("test").Value ?? "Variable not configured!";
+					await context.Response.WriteAsync($"Hello from CI/CD 2! Test variable: {testVariable}");
 				});
 			});
 		}
